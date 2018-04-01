@@ -14,6 +14,12 @@ public class DivideTwo
 		System.out.print("Enter the denominator: ");
 		denominator = keyboard.nextInt();
 
+		if (denominator == 0)
+		{
+			System.out.println("Division by zero is not allowed. Please enter a valid number: ");
+			denominator = keyboard.nextInt();
+		}
+
 		System.out.print(numerator + "/" + denominator + " = ");
 		System.out.println((double) numerator/denominator);
 	}

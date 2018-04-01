@@ -1,4 +1,5 @@
 import java.util.*;
+import javax.swing.*;
 
 public class Salary
 {
@@ -7,11 +8,20 @@ public class Salary
   {
 		Scanner console = new Scanner(System.in);
   		double normal,extra,total;
-		System.out.println("Please Enter number of normal hours: ");
-		normal = console.nextDouble();
-	 	System.out.println("Please Enter number of extra hours: ");
-		extra = console.nextDouble();
+		normal = Double.parseDouble(JOptionPane.showInputDialog("Please Enter number of normal hours for week 1"));
+		extra = Double.parseDouble(JOptionPane.showInputDialog("Please Enter number of extra hours for week 1"));
+		normal += Double.parseDouble(JOptionPane.showInputDialog("Please Enter number of normal hours for week 2"));
+	 	extra += Double.parseDouble(JOptionPane.showInputDialog("Please Enter number of extra hours for week 2"));
 		total = 10*normal+15*extra;
-		System.out.println("Total salary is: "+total+"\n");
+
+		if (total < 500)
+		{
+			total += total * 0.1;
+		}
+		else if (total < 1000)
+		{
+			total += total * 0.05;
+		}
+		JOptionPane.showMessageDialog(null, "Total salary is: " + total);
    }
 }
